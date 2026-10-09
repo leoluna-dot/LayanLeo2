@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17142f">
+<title>LayanLeo ♡ Our Little Universe</title>
+
+<style>
+:root {
+  --night: #17142f;
+  --pink: #ffb9d8;
+  --cream: #fff3e9;
+  --lavender: #d9c7ff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(ellipse at 50% 0%, #493766 0%, transparent 55%),
+    linear-gradient(180deg, #17142f, #211a40 65%, #35254b);
+  overflow-x: hidden;
+}
+
+button { font: inherit; cursor: pointer; }
+
+#stars {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  color: white;
+  animation: twinkle 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .25; transform: scale(.8); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 30px, 650px);
+  margin: auto;
+  padding: 35px 0 55px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--pink);
+  letter-spacing: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(35px, 10vw, 58px);
+  font-weight: normal;
+  line-height: 1.1;
+  margin: 15px 0;
+}
+
+h1 span { color: var(--pink); }
+
+.subtitle {
+  color: #e2d8f2;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.moon-scene {
+  position: relative;
+  height: 235px;
+  display: grid;
+  place-items: center;
+}
+
+.moon {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: #fff0d8;
+  box-shadow: 0 0 30px #ffe6cc88, 0 0 90px #e9c5ff44;
+  position: relative;
+}
+
+.moon:after {
+  content: "";
+  position: absolute;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  background: #302448;
+  left: 31px;
+  top: -12px;
+}
+
+/* One small bunny illustration */
+.bunny {
+  position: absolute;
+  bottom: 15px;
+  width: 68px;
+  height: 68px;
+  background-image: url("https://em-content.zobj.net/source/apple/391/rabbit_1f407.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 12px #ffb9d855);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+.primary, .room, .back {
+  border: 1px solid #f8c5df77;
+  transition: .2s ease;
+}
+
+.primary {
+  background: linear-gradient(135deg, #f5b8d7, #d8bdfd);
+  color: #261a3d;
+  padding: 14px 27px;
+  border-radius: 30px;
+  box-shadow: 0 0 28px #f5b8d733;
+  margin: 16px 0;
+}
+
+.primary:active, .room:active { transform: scale(.97); }
+
+.section-title {
+  font-size: 25px;
+  font-weight: normal;
+  margin: 32px 0 8px;
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.room {
+  min-height: 138px;
+  border-radius: 20px;
+  background: #ffffff0b;
+  color: var(--cream);
+  padding: 19px 10px;
+  backdrop-filter: blur(8px);
+}
+
+.room .emoji {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.room strong { font-size: 15px; font-weight: normal; }
+
+.room small {
+  display: block;
+  color: #d8cce9;
+  margin-top: 7px;
+  font-size: 12px;
+}
+
+footer {
+  color: #c7b9da;
+  font-size: 12px;
+  margin-top: 38px;
+}
+
+.hidden { display: none !important; }
+
+.panel {
+  margin-top: 26px;
+  border: 1px solid #f8c5df55;
+  border-radius: 25px;
+  background: #ffffff0b;
+  padding: 24px 19px;
+  animation: appear .35s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel h2 {
+  font-size: 28px;
+  font-weight: normal;
+  color: var(--pink);
+}
+
+.panel p {
+  line-height: 1.9;
+  color: #f3e9fa;
+  white-space: pre-line;
+}
+
+.back {
+  border-radius: 24px;
+  background: transparent;
+  color: var(--pink);
+  padding: 10px 20px;
+  margin-top: 15px;
+}
+
+.wishes button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #e5c9ff44;
+  border-radius: 14px;
+  color: var(--cream);
+  background: #ffffff09;
+}
+
+.candles { font-size: 40px; margin: 15px 0; }
+
+#love-note {
+  border-left: 2px solid var(--pink);
+  padding-left: 13px;
+  text-align: left;
+  margin: 20px 0;
+}
+
+.heart {
+  position: fixed;
+  pointer-events: none;
+  z-index: 5;
+  animation: rise 2.2s ease-out forwards;
+}
+
+@keyframes rise {
+  to { transform: translateY(-160px) rotate(25deg); opacity: 0; }
+}
+
+@media (max-width: 360px) {
+  .rooms { gap: 8px; }
+  .room { padding: 14px 7px; }
+}
+</style>
+</head>
+
+<body>
+<div id="stars" aria-hidden="true"></div>
+
+<main>
+  <div id="home">
+    <div class="eyebrow">A little universe made for you</div>
+    <h1>Layan<span>Leo</span> ♡</h1>
+
+    <p class="subtitle">
+      Somewhere between the moon and the stars,<br>
+      there is a little world that belongs to us.
+    </p>
+
+    <div class="moon-scene">
+      <div class="moon"></div>
+      <div class="bunny" role="img" aria-label="Little bunny"></div>
+    </div>
+
+    <button class="primary" onclick="openRoom('welcome')">
+      Enter our little universe ✧
+    </button>
+
+    <h2 class="section-title">Choose a little world</h2>
+    <p class="subtitle">Every little corner has something for you.</p>
+
+    <div class="rooms">
+      <button class="room" onclick="openRoom('moon')">
+        <span class="emoji">🌙</span>
+        <strong>Moon Room</strong>
+        <small>A little reminder</small>
+      </button>
+
+      <button class="room" onclick="openRoom('garden')">
+        <span class="emoji">🌷</span>
+        <strong>Little Garden</strong>
+        <small>Soft things & love</small>
+      </button>
+
+      <button class="room" onclick="openRoom('wishes')">
+        <span class="emoji">⭐</span>
+        <strong>Wishful Sky</strong>
+        <small>Open a tiny wish</small>
+      </button>
+
+      <button class="room" onclick="openRoom('birthday')">
+        <span class="emoji">🎂</span>
+        <strong>Birthday Room</strong>
+        <small>Your special surprise</small>
+      </button>
+    </div>
+  </div>
+
+  <section id="panel" class="panel hidden" aria-live="polite">
+    <div id="panel-content"></div>
+    <button class="back" onclick="goHome()">← Back to our universe</button>
+  </section>
+
+  <footer>made with love, just for Layan ♡</footer>
+</main>
+
+<script>
+const starField = document.getElementById("stars");
+
+for (let i = 0; i < 65; i++) {
+  const star = document.createElement("span");
+  star.className = "star";
+  star.textContent = Math.random() > .8 ? "✧" : "·";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.fontSize = (8 + Math.random() * 13) + "px";
+  star.style.animationDelay = (Math.random() * 3) + "s";
+  starField.appendChild(star);
+}
+
+const content = {
+  welcome: `
+    <div class="eyebrow">you made it</div>
+    <h2>Welcome home, my love ♡</h2>
+    <p>This little universe is a tiny place for us.
+    No matter how big the world gets, I hope you always
+    find a little comfort, a little magic, and a little love here.</p>
+    <div style="font-size:38px">🌙 ✧ 💗</div>
+  `,
+
+  moon: `
+    <div class="eyebrow">moon room</div>
+    <h2>For my favorite star</h2>
+    <p>Even on the quietest nights, there is a little light
+    that makes everything feel softer.
+
+    You are one of my favorite parts of this universe.
+    I hope you never forget how special you are to me.</p>
+    <div style="font-size:35px">🌙 ✨</div>
+  `,
+
+  garden: `
+    <div class="eyebrow">little garden</div>
+    <h2>A garden full of soft things</h2>
+    <div style="font-size:35px">🌷 ✧ 💗</div>
+    <p>If I could collect every soft and lovely thing
+    in the world and put it in one garden for you,
+    I think it would still need one more thing:
+    you, smiling in the middle of it.</p>
+    <button class="primary" onclick="sprinkleHearts()">Send you some love ♡</button>
+  `,
+
+  wishes: `
+    <div class="eyebrow">wishful sky</div>
+    <h2>Pick a little star ⭐</h2>
+    <p>Tap one. It has a tiny wish waiting for you.</p>
+    <div class="wishes">
+      <button onclick="showWish(0)">✧ The pink star</button>
+      <button onclick="showWish(1)">☾ The moon star</button>
+      <button onclick="showWish(2)">♡ The heart star</button>
+    </div>
+    <p id="wish-text"></p>
+  `,
+
+  birthday: `
+    <div class="eyebrow">this day is yours</div>
+    <h2>Happy Birthday, Layan! 🎂</h2>
+    <p>Make a wish, my love.</p>
+    <div class="candles" id="candles">🕯️ 🕯️ 🕯️</div>
+    <button class="primary" onclick="blowCandles()">Blow out the candles ♡</button>
+    <div id="birthday-note"></div>
+  `
+};
+
+function openRoom(room) {
+  document.getElementById("home").classList.add("hidden");
+  const panel = document.getElementById("panel");
+  panel.classList.remove("hidden");
+  document.getElementById("panel-content").innerHTML =
+    content[room] || content.welcome;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function goHome() {
+  document.getElementById("panel").classList.add("hidden");
+  document.getElementById("home").classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+const wishes = [
+  "I wish you more happy days than you can count, and little reasons to smile every day. ♡",
+  "May life be gentle with your heart, and may you always find a little magic in ordinary days. 🌙",
+  "My wish is that you always feel loved, appreciated, and free to be exactly who you are. 💗"
+];
+
+function showWish(index) {
+  document.getElementById("wish-text").textContent = wishes[index];
+  sprinkleHearts();
+}
+
+function blowCandles() {
+  document.getElementById("candles").textContent = "✨ 💗 ✨";
+
+  document.getElementById("birthday-note").innerHTML = `
+    <div id="love-note">
+      <p>Happy Birthday, my Layan ♡</p>
+      <p>I hope this new year of your life brings you gentle mornings,
+      beautiful surprises, and so many reasons to laugh.</p>
+      <p>Thank you for being you. You make my world feel a little more magical.
+      I hope today reminds you how loved you are.</p>
+      <p>With all my love,<br>Leo ♡</p>
+    </div>
+  `;
+
+  sprinkleHearts();
+}
+
+function sprinkleHearts() {
+  const symbols = ["♡", "♥", "✧", "💗"];
+
+  for (let i = 0; i < 15; i++) {
+    const heart = document.createElement("span");
+    heart.className = "heart";
+    heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    heart.style.left = Math.random() * 95 + "vw";
+    heart.style.top = (45 + Math.random() * 45) + "vh";
+    heart.style.color = Math.random() > .5 ? "#ffb9d8" : "#d9c7ff";
+    heart.style.fontSize = (16 + Math.random() * 18) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 2300);
+  }
+}
+</script>
+</body>
+</html>
